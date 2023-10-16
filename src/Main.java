@@ -15,12 +15,21 @@ public class Main {
         ControllerAdminHandler cah = new ControllerAdminHandler();
         User usuarioActivo = new User();
         int op;
+        boolean isLoggedIn = true;
+        
         do {
             System.out.println("1. Registrar cliente");
             System.out.println("2. Registrar empleado");
             System.out.println("3. Buscar usuario");
             System.out.println("4. Iniciar sesion");
             System.out.println("5. Salir");
+            
+            if (isLoggedIn) {
+            	//MenuClientes
+            	System.out.println("6. Crear reserva cliente");
+            	System.out.println("7. Cancelar reserva cliente");
+            	System.out.println("8. Logout cliente");
+            }
             op = Integer.parseInt(entrada.nextLine());
             switch (op)
             {
@@ -73,6 +82,7 @@ public class Main {
                     if (usuarioActivo instanceof Client)
                     {
                         System.out.println("Ingreso un cliente");
+                        isLoggedIn = true; //ClientAccess
                     }
                     if (usuarioActivo instanceof Employee)
                     {
@@ -81,9 +91,23 @@ public class Main {
                 case 5:
                     System.out.println("Adios");
                     usuarioActivo.logout();
+                    
+                case 6: //createReserve
+                	
+                case 7://CancelReserve
+
+                
+                case 8://logout
+                	if (isLoggedIn) {
+                		System.out.println("Client Login closed");
+                		isLoggedIn = false;
+                	}
+                	break;
+                    
                 default:
 
             }
         }while (op != 5);
     }
+    
 }

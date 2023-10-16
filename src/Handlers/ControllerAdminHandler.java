@@ -22,7 +22,7 @@ public class ControllerAdminHandler implements ControllerAdmin {
         }
         catch (RuntimeException e)
         {
-            Client c = new Client(name,birthdate, password,contactNumeber,email,nationality,urlImag);
+            Client c = new Client(name,password,birthdate,contactNumeber,email,nationality,urlImag);
             administrator.registerClient(c);
             return;
         }
