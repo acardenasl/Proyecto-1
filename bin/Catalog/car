@@ -119,6 +119,25 @@ public class CarCat {
 	        for (Carro carro : carros) {
 	            System.out.println(carro);
 	        }
+        
+        public void cambiarLugar(String ID, String newPOS) {
+            Carro carro = buscarCarro(ID);
+            if (carro != null) {
+                carro.setPOS(newPOS);
+            }
+        }
+
+        public void cambiarAvailable(String ID, boolean newAvailable) {
+            Carro carro = buscarCarro(ID);
+            if (carro != null) {
+                carro.setPOS(newAvailable);
+            }
+        }
+
+        public void cambiarEstado(String ID, String newState) {
+            Carro carro = buscarCarro(ID);
+            if (carro != null) {
+                carro.setPOS(newState);
 				
 	}
 	
