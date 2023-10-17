@@ -1,7 +1,7 @@
-package natali;
+package Catalog;
 
 import java.util.ArrayList;
-public class CarCat {
+public class Car {
 	
 	class Carro { 
 		private Integer ID;
@@ -80,12 +80,12 @@ public class CarCat {
 		}
 	}
 	
-	class CarCatalog {
+	class CarCat {
 			
 		private ArrayList<Carro> carros;
 			
 		
-		public CarCatalog() {
+		public CarCat() {
 			carros = new ArrayList<Carro>();
 				
 		}
@@ -146,7 +146,7 @@ public class CarCat {
 	}
 	
 	public static void main(String[] args) {
-		CarCatalog catalog = new CarCatalog();
+		CarCat catalog = new CarCat();
 			
 		catalog.agregarCarro(new Carro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5f, true, "Disponible", "sede-2"));
 		catalog.resumenCatalogo();
@@ -155,10 +155,9 @@ public class CarCat {
 		catalog.cambiarAvailable(12345, false);
 		catalog.cambiarEstado(12345, "manteniento");
 
-		catalog.eliminarCarro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5f, true, "Disponible", "sede-2");
+		catalog.eliminarCarro(12345);
 		System.out.println("Catálogo final:");
 		catalog.resumenCatalogo();
 	}
 
 }
-
