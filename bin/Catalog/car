@@ -124,7 +124,7 @@ public class CarCat {
 	
 	public class Main {
 		public static void main(String[] args) {
-			CarCat catalog = new CarCatalog();
+			CarCatalog catalog = new CarCatalog();
 			
 			catalog.agregarCarro(new Carro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5km, true, "Disponible", "sede-2"));
 			
