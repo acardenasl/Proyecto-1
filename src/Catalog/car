@@ -80,85 +80,85 @@ public class CarCat {
 		}
 	}
 	
-	class CarCat {
+	class CarCatalog {
 			
-        private ArrayList<Carro> carros;
-            
-        
-        public CarCat() {
-            carros = new ArrayList<Carro>();
-                
-        }
-        
-        public void agregarCarro(Carro carro) {
-            carros.add(carro);
-        
-        }
-        
-        public Carro buscarCarro(Integer ID) {
-            for (Carro carro : carros) {
-                if (carro.getid().equals(ID) ) {
-                        return carro;
-                    }
-                }
-                return null;
-            }
-        public void eliminarCarro(Integer ID) {
-            Carro carro = buscarCarro(ID);
-            if (carro != null) {
-                carros.remove(carro);
-            }
-        }
-        
-        public ArrayList<Carro> listarCarros() {
-            return carros;
-        }
-        
-        public void resumenCatalogo() {
-            System.out.println("Catálogo de carros:");
-            for (Carro carro : carros) {
-                System.out.println(carro);
-            }
-        
-        }
-        
-        public void cambiarLugar(Integer ID, String newPOS) {
-            Carro carro = buscarCarro(ID);
-            if (carro != null) {
-                carro.setPOS(newPOS);
-            }
-        }
+		private ArrayList<Carro> carros;
+			
+		
+		public CarCatalog() {
+			carros = new ArrayList<Carro>();
+				
+		}
+		
+		public void agregarCarro(Carro carro) {
+			carros.add(carro);
+		
+		}
+		
+		public Carro buscarCarro(Integer ID) {
+			for (Carro carro : carros) {
+				if (carro.getid().equals(ID) ) {
+						return carro;
+					}
+				}
+				return null;
+			}
+		public void eliminarCarro(Integer ID) {
+			Carro carro = buscarCarro(ID);
+			if (carro != null) {
+				carros.remove(carro);
+			}
+		}
+		
+		public ArrayList<Carro> listarCarros() {
+			return carros;
+		}
+		
+		public void resumenCatalogo() {
+			System.out.println("Catálogo de carros:");
+			for (Carro carro : carros) {
+				System.out.println(carro);
+			}
+		
+		}
+		
+		public void cambiarLugar(Integer ID, String newPOS) {
+			Carro carro = buscarCarro(ID);
+			if (carro != null) {
+				carro.setPOS(newPOS);
+			}
+		}
 
-        public void cambiarAvailable(Integer ID, boolean newAvailable) {
-            Carro carro = buscarCarro(ID);
-            if (carro != null) {
-                carro.setAvailable(newAvailable);
-            }
-        }
+		public void cambiarAvailable(Integer ID, boolean newAvailable) {
+			Carro carro = buscarCarro(ID);
+			if (carro != null) {
+				carro.setAvailable(newAvailable);
+			}
+		}
 
-        public void cambiarEstado(Integer ID, String newState) {
-            Carro carro = buscarCarro(ID);
-            if (carro != null) {
-                carro.setState(newState);
-            }
-        }
-                
-    }
-    
-    public static void main(String[] args) {
-        CarCat catalog = new CarCat();
-            
-        catalog.agregarCarro(new Carro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5f, true, "Disponible", "sede-2"));
-        catalog.resumenCatalogo();
-            
-        catalog.cambiarLugar(12345, "ubicación");
-        catalog.cambiarAvailable(12345, false);
-        catalog.cambiarEstado(12345, "manteniento");
+		public void cambiarEstado(Integer ID, String newState) {
+			Carro carro = buscarCarro(ID);
+			if (carro != null) {
+				carro.setState(newState);
+			}
+		}
+				
+	}
+	
+	public static void main(String[] args) {
+		CarCatalog catalog = new CarCatalog();
+			
+		catalog.agregarCarro(new Carro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5f, true, "Disponible", "sede-2"));
+		catalog.resumenCatalogo();
+			
+		catalog.cambiarLugar(12345, "ubicación");
+		catalog.cambiarAvailable(12345, false);
+		catalog.cambiarEstado(12345, "manteniento");
 
-        catalog.eliminarCarro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5f, true, "Disponible", "sede-2");
-        System.out.println("Catálogo final:");
-        catalog.resumenCatalogo();
-    }
+		catalog.eliminarCarro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5f, true, "Disponible", "sede-2");
+		System.out.println("Catálogo final:");
+		catalog.resumenCatalogo();
+	}
 
 }
 
