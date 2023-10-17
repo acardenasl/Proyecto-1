@@ -1,0 +1,147 @@
+package natali;
+
+import java.util.ArrayList;
+public class CarCat {
+	
+	class Carro { 
+		private Integer ID;
+		private String Name;
+		private String Plates;
+		private String Category;
+		private String Brand;
+		private String Model;
+		private String Fuel;
+		private Float Kilometrage;
+		private Boolean Available;
+		private String State;
+		private String POS;
+		
+		public Carro(Integer ID, String Name, String Plates, String Category, String Brand, String Model, String Fuel, Float Kilometrage, Boolean Available, String State, String POS) {
+			this.ID = ID;
+			this.Name = Name;
+			this.Plates = Plates;
+			this.Category = Category;
+			this.Brand = Brand;
+			this.Model = Model;
+			this.Fuel = Fuel;
+			this.Kilometrage = Kilometrage;
+			this.Available = Available;
+			this.State = State;
+			this.POS = POS;
+		}
+		
+		public Integer getid() {
+			return ID;
+		}
+		
+		public String getname() {
+			return Name;
+		}
+		
+		public String getplates() {
+			return Plates;
+		}
+		
+		public String getcategory() {
+			return Category;
+		}
+		
+		public String getbrand() {
+			return Brand;
+		}
+		
+		public String getmodel() {
+			return Model;
+		}
+		
+		public String getfuel() {
+			return Fuel;
+		}
+		
+		public Float getkilometrage() {
+			return Kilometrage;
+
+		}
+		
+		public Boolean getavailable() {
+			return Available;
+		}
+		
+		public String getstate() {
+			return State;
+		}
+		
+		public String getpos() {
+			return POS;
+		}
+		
+		public String toString() {
+			return "ID: " + ID + ", Name: " + Name + ", Plates: " + Plates + ", Category: " + Category + ", Brand: " + Brand + ", Model: " + Model + ", Fuel: " + Fuel + ", Kilometrage: " + Kilometrage + ", Available: " + Available + ", State: " + State + ", POS: " + POS;
+		}
+	}
+	
+	class CarCatalog {
+		
+		private ArrayList<Carro> carros;
+			
+		
+		public CarCatalog() {
+			carros = new ArrayList<Carro>();
+				
+		}
+		
+		public void agregarCarro(Carro carro) {
+			carros.add(carro);
+		
+		}
+		
+		public Carro buscarCarro(Integer ID, String Name, String Plates, String Category, String Brand, String Model, String Fuel, Float Kilometrage, Boolean Available, String State, String POS) {
+	        for (Carro carro : carros) {
+	            if (carro.getid().equals(ID) && carro.getname().equals(Name) && carro.getplates().equals(Plates) && carro.getcategory().equals(Category) && carro.getbrand().equals(Brand) && carro.getmodel().equals(Model) && carro.getfuel().equals(Fuel) && carro.getkilometrage().equals(Kilometrage) && carro.getavailable().equals(Available) && carro.getstate().equals(State) && carro.getpos().equals(POS)) {
+		                return carro;
+		            }
+		        }
+		        return null;
+		    }
+		public void eliminarCarro(Integer ID, String Name, String Plates, String Category, String Brand, String Model, String Fuel, Float Kilometrage, Boolean Available, String State, String POS) {
+			Carro carro = buscarCarro(ID, Name, Plates, Category, Brand, Model, Fuel, Kilometrage, Available, State, POS);
+			if (carro != null) {
+				carros.remove(carro);
+			}
+		}
+		
+		public ArrayList<Carro> listarCarros() {
+			return carros;
+		}
+		
+		public void resumenCatalogo() {
+	        System.out.println("Catálogo de carros:");
+	        for (Carro carro : carros) {
+	            System.out.println(carro);
+	        }
+				
+	}
+	
+	public class Main {
+		public static void main(String[] args) {
+			CarCat catalog = new CarCatalog();
+			
+			catalog.agregarCarro(new Carro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5km, true, "Disponible", "sede-2"));
+			
+			System.out.println("Catalogo de carros: ");
+			catalog.resumenCatalogo();
+			
+			Carro CarroaBuscar = catalog.buscarCarro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5km, true, "Disponible", "sede-2");
+			if (CarroaBuscar != null) {
+				System.out.println("Se encontro el siguiente carro " + CarroaBuscar);
+	        } else {
+	            System.out.println("No se encontro el carro.");
+	        }
+
+	        catalog.eliminarCarro(12345, "Carro Azul", "ABC-123", "sedán", "toyota", "corolla", "gasolina", 50.5, true, "Disponible", "sede-2");
+	        System.out.println("Catálogo después de eliminar un carro:");
+	        catalog.resumenCatalogo();
+			}
+		}
+	}
+}
