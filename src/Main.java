@@ -92,7 +92,79 @@ public class Main {
                     if (usuarioActivo instanceof Employee)
                     {
                         System.out.println("Ingreso un empleado");
+                        char subChoice;
+                        do {
+                            System.out.println("1. entregar carro");
+                            System.out.println("2. devolver carro");
+                            System.out.println("3. registro licencia");
+                            System.out.println("4. confirmar reserva");
+                            System.out.println("5. tarjeta de credito");
+                            System.out.println("Ingrese su elección: ");
+                            
+                            subChoice = entrada.next().charAt(0);
+                            switch (subChoice) {
+                                case '1':
+                                    String ID, nombre, plates, category, brand, model, fuel, kilometrage, vailable, state, POS;
+                                    System.out.println("");
+                                    ID = entrada.nextLine();
+                                    System.out.println("Ingrese el ID.");
+                                    nombre = entrada.nextLine();
+                                    System.out.println("Ingrese el nombre.");
+                                    plates = entrada.nextLine();
+                                    System.out.println("Ingrese la placa.");
+                                    category = entrada.nextLine();
+                                    System.out.println("Ingrese la categoria");
+                                    brand = entrada.nextLine();
+                                    System.out.println("Ingrese la nacionalidad del cliente");
+                                    model = entrada.nextLine();
+                                    System.out.println("Ingrese el modelo");
+                                    fuel = entrada.nextLine();
+                                    System.out.println("Ingrese el numero del cliente");
+                                    kilometrage = entrada.nextLine();
+                                    System.out.println("Ingrese el kilometrage");
+                                    vailable = entrada.nextLine();
+                                    System.out.println("Ingrese la nacionalidad del cliente");
+                                    state = entrada.nextLine();
+                                    System.out.println("Ingrese la url de la imagen del cliente");
+                                    POS = entrada.nextLine();
+                                    break;
+                                case '2':
+                                    break;
+                                case '3':
+                                    String numero,expCountry,expDate,licenseImage;
+                                    System.out.println("Ingrese el nombre de usuario del cliente");
+                                    numero = entrada.nextLine();
+                                    System.out.println("Ingrese la contrasena del cliente");
+                                    expCountry = entrada.nextLine();
+                                    System.out.println("Ingrese la fecha de nacimiento del cliente (dd/mm/aaaa)");
+                                    expDate = entrada.nextLine();
+                                    System.out.println("Ingrese el numero del cliente");
+                                    licenseImage = entrada.nextLine();
+                                    break;
+                                case '4':
+                                    break;
+                                case '5':
+                                    String num,nom,expdate,securityCode;
+                                    System.out.println("Ingrese el nombre de usuario del cliente");
+                                    num = entrada.nextLine();
+                                    System.out.println("Ingrese la contrasena del cliente");
+                                    nom = entrada.nextLine();
+                                    System.out.println("Ingrese la fecha de nacimiento del cliente (dd/mm/aaaa)");
+                                    expdate = entrada.nextLine();
+                                    System.out.println("Ingrese el numero del cliente");
+                                    securityCode = entrada.nextLine();
+                                    break;
+                                
+                                default:
+                                    System.out.println("la opción no es valida intentelo de nuevo.");
+                                    break;
+                            }
+                        } while (subChoice != '0');
+                    } else {
+                        System.out.println("usuario no valido intetentelo de nuevo.");
                     }
+                    break;
+
                 case 5:
                     System.out.println("Adios");
                     usuarioActivo.logout();
